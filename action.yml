@@ -12,7 +12,7 @@ inputs:
     required: false
     description: 'Job status'
 runs:
-  using: 'node12'
+  using: 'node20'
   main: 'dist/main.js'
 branding:
   icon: 'message-square'
