@@ -11,6 +11,12 @@ inputs:
   status:
     required: false
     description: 'Job status'
+  workflow_name:
+      required: false
+      description: 'Workflow name'
+  workflow_url:
+      required: false
+      description: 'Workflow URL'
 runs:
   using: 'node20'
   main: 'dist/main.js'

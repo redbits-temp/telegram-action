@@ -56,9 +56,9 @@ async function run(): Promise<void> {
         //elaborate event
         switch (event) {
             case "push":
-                
+
                 Utils.dump(payload);
-                
+
                 //get commits
                 let commits = payload.commits.map(commit => ({
                     repo_url: repo_url,
@@ -84,7 +84,9 @@ async function run(): Promise<void> {
                 let commitTemplateContent = fs.readFileSync(commit_template, 'utf-8');
                 message = mustache.render(commitTemplateContent, {
                     commits: commits,
-                    status: Utils.default(StatusMessage[status])
+                    status: Utils.default(StatusMessage[status]),
+                    workflow_name: Utils.default(core.getInput("workflow_name")),
+                    workflow_url: Utils.default(core.getInput("workflow_url")),
                 });
 
                 break;
